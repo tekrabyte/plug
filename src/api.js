@@ -21,6 +21,9 @@ async function apiRequest(url, options = {}) {
 export function fetchProducts() {
   return apiRequest("/wp-json/erp/v1/products");
 }
+export function fetchCategories() {
+  return apiRequest("/wp-json/erp/v1/categories");
+}
 
 export function createOrder(payload) {
   return apiRequest("/wp-json/erp/v1/order/create", {
