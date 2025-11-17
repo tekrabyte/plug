@@ -95,11 +95,11 @@ class TEKRAERPOS_API {
     }
     
     public function check_permission() {
-        return current_user_can('use_erp_pos');
+        return current_user_can('use_tekraerpos');
     }
     
     public function check_admin_permission() {
-        return current_user_can('manage_erp_pos');
+        return current_user_can('manage_tekraerpos');
     }
     
     public function get_products($request) {
@@ -116,7 +116,7 @@ class TEKRAERPOS_API {
             $args['category'] = array(sanitize_text_field($category));
         }
         
-        $products = ERP_POS_WooCommerce::get_products($args);
+        $products = TEKRAERPOS_WooCommerce::get_products($args);
         
         return new WP_REST_Response($products, 200);
     }
