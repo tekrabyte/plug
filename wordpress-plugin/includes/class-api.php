@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 /**
  * REST API endpoints
  */
-class ERP_POS_API {
+class TEKRAERPOS_API {
     private static $instance = null;
     
     public static function get_instance() {
@@ -21,7 +21,7 @@ class ERP_POS_API {
     }
     
     public function register_routes() {
-        $namespace = 'erp/v1';
+        $namespace = 'tekraerpos/v1';
         
         // Products endpoint
         register_rest_route($namespace, '/products', array(
