@@ -36,16 +36,19 @@ export default function CheckoutModal({ onClose }) {
   const handleCheckout = async () => {
     if (!selectedPayment) {
       setError('Please select a payment method');
+      toast.error('Please select a payment method');
       return;
     }
 
     if (selectedPayment === 'cash' && parseFloat(amountReceived) < total) {
       setError('Insufficient payment amount');
+      toast.error('Insufficient payment amount');
       return;
     }
 
     setProcessing(true);
     setError('');
+    const loadingToast = toast.loading('Processing payment...');
 
     try {
       const payload = {
@@ -69,6 +72,7 @@ export default function CheckoutModal({ onClose }) {
 
       const result = await createOrder(payload);
       
+      toast.success('Payment successful!', { id: loadingToast });
       setSuccess(true);
       setOrderId(result.order_id || result.id);
       clear();
@@ -79,7 +83,9 @@ export default function CheckoutModal({ onClose }) {
       }, 3000);
       
     } catch (err) {
-      setError(err.message || 'Failed to process checkout');
+      const errorMsg = err.message || 'Failed to process checkout';
+      setError(errorMsg);
+      toast.error(errorMsg, { id: loadingToast });
     } finally {
       setProcessing(false);
     }
