@@ -123,7 +123,7 @@ class TEKRAERPOS_API {
     
     public function get_product_by_barcode($request) {
         $barcode = sanitize_text_field($request['barcode']);
-        $product = ERP_POS_WooCommerce::get_product_by_barcode($barcode);
+        $product = TEKRAERPOS_WooCommerce::get_product_by_barcode($barcode);
         
         if ($product) {
             return new WP_REST_Response($product, 200);
