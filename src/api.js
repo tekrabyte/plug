@@ -31,3 +31,16 @@ export function createOrder(payload) {
     body: JSON.stringify(payload),
   });
 }
+export function fetchTransactions(params = {}) {
+  const query = new URLSearchParams(params).toString();
+  return apiRequest(`/wp-json/erp/v1/transactions${query ? '?' + query : ''}`);
+}
+
+export function fetchReports(params = {}) {
+  const query = new URLSearchParams(params).toString();
+  return apiRequest(`/wp-json/erp/v1/reports${query ? '?' + query : ''}`);
+}
+
+export function getReceipt(transactionId) {
+  return apiRequest(`/wp-json/erp/v1/receipt/${transactionId}`);
+}
