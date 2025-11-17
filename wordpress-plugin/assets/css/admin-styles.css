@@ -1,0 +1,289 @@
+/**
+ * ERP POS Admin Styles
+ * Styling untuk WordPress Admin Pages
+ */
+
+/* Admin Panel Styles */
+.erp-pos-admin-wrap {
+    max-width: 1400px;
+    margin: 20px auto;
+}
+
+/* Stats Cards */
+.erp-pos-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.erp-pos-stat-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #2271b1;
+    transition: all 0.3s ease;
+}
+
+.erp-pos-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.erp-pos-stat-card .stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2271b1;
+    margin: 10px 0;
+}
+
+.erp-pos-stat-card .stat-label {
+    color: #666;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Panel Styles */
+.erp-pos-panel {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+/* Table Enhancements */
+.erp-pos-panel table.wp-list-table {
+    border: none;
+}
+
+.erp-pos-panel table.wp-list-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.erp-pos-panel table.wp-list-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Status Badges */
+.erp-pos-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.erp-pos-status-completed,
+.erp-pos-status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.erp-pos-status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.erp-pos-status-cancelled,
+.erp-pos-status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Filters */
+.erp-pos-filters {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.erp-pos-filters input[type="text"],
+.erp-pos-filters input[type="date"],
+.erp-pos-filters input[type="email"],
+.erp-pos-filters select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.erp-pos-filters label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+    font-size: 13px;
+}
+
+/* Tenant Cards */
+.erp-pos-tenants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.erp-pos-tenant-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.erp-pos-tenant-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Modal Styles */
+.erp-pos-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.erp-pos-modal {
+    background: #fff;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.erp-pos-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.erp-pos-modal-body {
+    padding: 20px;
+}
+
+.erp-pos-modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Buttons */
+.button.button-primary.erp-pos-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.button.button-primary.erp-pos-primary:hover {
+    background: #135e96;
+    border-color: #135e96;
+}
+
+/* Charts */
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .erp-pos-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .erp-pos-tenants-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .erp-pos-filters > div {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading Spinner */
+.erp-pos-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: #2271b1;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success/Error Messages */
+.erp-pos-message {
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.erp-pos-message.success {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    color: #155724;
+}
+
+.erp-pos-message.error {
+    background: #f8d7da;
+    border-left: 4px solid #dc3545;
+    color: #721c24;
+}
+
+.erp-pos-message.info {
+    background: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+    color: #0c5460;
+}
+
+/* Form Tables */
+.form-table th {
+    width: 200px;
+    padding: 15px 10px 15px 0;
+}
+
+.form-table td {
+    padding: 15px 10px;
+}
+
+/* Tabs */
+.nav-tab-wrapper .nav-tab {
+    font-weight: 500;
+}
+
+.nav-tab-wrapper .nav-tab-active {
+    border-bottom: 2px solid #2271b1;
+}
