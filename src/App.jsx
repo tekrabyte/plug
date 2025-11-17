@@ -20,6 +20,30 @@ export default function App() {
     <TenantProvider>
       <ProductProvider>
         <CartProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                duration: 3000,
+                iconTheme: {
+                  primary: '#10b981',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                duration: 4000,
+                iconTheme: {
+                  primary: '#ef4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
           <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200">
             {/* Top Navigation Bar */}
             <nav className="bg-white shadow-lg border-b-4 border-blue-600">
