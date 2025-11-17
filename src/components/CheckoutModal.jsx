@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { useCart } from "../store/CartStore";
 import { useTenant } from "../store/TenantStore";
 import { createOrder } from "../api";
