@@ -208,7 +208,7 @@ class TEKRAERPOS_API {
         
         // Save payment
         if (!empty($data['payment_method'])) {
-            $table_payments = $wpdb->prefix . 'erp_payments';
+            $table_payments = $wpdb->prefix . 'tekraerpos_payments';
             $wpdb->insert(
                 $table_payments,
                 array(
@@ -234,7 +234,7 @@ class TEKRAERPOS_API {
     
     public function get_transactions($request) {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_transactions';
+        $table = $wpdb->prefix . 'tekraerpos_transactions';
         
         $tenant_id = $request->get_param('tenant_id');
         $start_date = $request->get_param('start_date');
