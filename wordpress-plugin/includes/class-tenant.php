@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 /**
  * Multi-tenant management class
  */
-class ERP_POS_Tenant {
+class TEKRAERPOS_Tenant {
     private static $instance = null;
     
     public static function get_instance() {
@@ -21,7 +21,7 @@ class ERP_POS_Tenant {
      */
     public static function get_tenant($tenant_id) {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_tenants';
+        $table = $wpdb->prefix . 'tekraerpos_tenants';
         return $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table WHERE id = %d",
             $tenant_id
@@ -33,8 +33,8 @@ class ERP_POS_Tenant {
      */
     public static function get_user_tenant($user_id) {
         global $wpdb;
-        $table_user_tenants = $wpdb->prefix . 'erp_user_tenants';
-        $table_tenants = $wpdb->prefix . 'erp_tenants';
+        $table_user_tenants = $wpdb->prefix . 'tekraerpos_user_tenants';
+        $table_tenants = $wpdb->prefix . 'tekraerpos_tenants';
         
         return $wpdb->get_row($wpdb->prepare(
             "SELECT t.* FROM $table_tenants t 
@@ -50,7 +50,7 @@ class ERP_POS_Tenant {
      */
     public static function get_all_tenants() {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_tenants';
+        $table = $wpdb->prefix . 'tekraerpos_tenants';
         return $wpdb->get_results("SELECT * FROM $table ORDER BY name ASC");
     }
     
@@ -59,7 +59,7 @@ class ERP_POS_Tenant {
      */
     public static function create_tenant($data) {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_tenants';
+        $table = $wpdb->prefix . 'tekraerpos_tenants';
         
         $slug = sanitize_title($data['name']);
         
@@ -87,7 +87,7 @@ class ERP_POS_Tenant {
      */
     public static function assign_user_to_tenant($user_id, $tenant_id, $role = 'cashier') {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_user_tenants';
+        $table = $wpdb->prefix . 'tekraerpos_user_tenants';
         
         return $wpdb->insert(
             $table,
@@ -104,7 +104,7 @@ class ERP_POS_Tenant {
      */
     public static function get_setting($tenant_id, $key, $default = null) {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_settings';
+        $table = $wpdb->prefix . 'tekraerpos_settings';
         
         $value = $wpdb->get_var($wpdb->prepare(
             "SELECT setting_value FROM $table WHERE tenant_id = %d AND setting_key = %s",
@@ -120,7 +120,7 @@ class ERP_POS_Tenant {
      */
     public static function update_setting($tenant_id, $key, $value) {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_settings';
+        $table = $wpdb->prefix . 'tekraerpos_settings';
         
         $existing = $wpdb->get_var($wpdb->prepare(
             "SELECT id FROM $table WHERE tenant_id = %d AND setting_key = %s",

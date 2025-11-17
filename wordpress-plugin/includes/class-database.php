@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 /**
  * Database management class
  */
-class ERP_POS_Database {
+class TEKRAERPOS_Database {
     private static $instance = null;
     
     public static function get_instance() {
@@ -23,7 +23,7 @@ class ERP_POS_Database {
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         
         // Tenants table
-        $table_tenants = $wpdb->prefix . 'erp_tenants';
+        $table_tenants = $wpdb->prefix . 'tekraerpos_tenants';
         $sql_tenants = "CREATE TABLE IF NOT EXISTS $table_tenants (
             id bigint(20) NOT NULL AUTO_INCREMENT,
             name varchar(255) NOT NULL,
@@ -41,7 +41,7 @@ class ERP_POS_Database {
         dbDelta($sql_tenants);
         
         // User-Tenant relationships
-        $table_user_tenants = $wpdb->prefix . 'erp_user_tenants';
+        $table_user_tenants = $wpdb->prefix . 'tekraerpos_user_tenants';
         $sql_user_tenants = "CREATE TABLE IF NOT EXISTS $table_user_tenants (
             id bigint(20) NOT NULL AUTO_INCREMENT,
             user_id bigint(20) NOT NULL,
@@ -54,7 +54,7 @@ class ERP_POS_Database {
         dbDelta($sql_user_tenants);
         
         // Transactions table
-        $table_transactions = $wpdb->prefix . 'erp_transactions';
+        $table_transactions = $wpdb->prefix . 'tekraerpos_transactions';
         $sql_transactions = "CREATE TABLE IF NOT EXISTS $table_transactions (
             id bigint(20) NOT NULL AUTO_INCREMENT,
             order_id bigint(20),
@@ -80,7 +80,7 @@ class ERP_POS_Database {
         dbDelta($sql_transactions);
         
         // Transaction items table
-        $table_transaction_items = $wpdb->prefix . 'erp_transaction_items';
+        $table_transaction_items = $wpdb->prefix . 'tekraerpos_transaction_items';
         $sql_transaction_items = "CREATE TABLE IF NOT EXISTS $table_transaction_items (
             id bigint(20) NOT NULL AUTO_INCREMENT,
             transaction_id bigint(20) NOT NULL,
@@ -99,7 +99,7 @@ class ERP_POS_Database {
         dbDelta($sql_transaction_items);
         
         // Payment history table
-        $table_payments = $wpdb->prefix . 'erp_payments';
+        $table_payments = $wpdb->prefix . 'tekraerpos_payments';
         $sql_payments = "CREATE TABLE IF NOT EXISTS $table_payments (
             id bigint(20) NOT NULL AUTO_INCREMENT,
             transaction_id bigint(20) NOT NULL,
@@ -114,7 +114,7 @@ class ERP_POS_Database {
         dbDelta($sql_payments);
         
         // Settings table
-        $table_settings = $wpdb->prefix . 'erp_settings';
+        $table_settings = $wpdb->prefix . 'tekraerpos_settings';
         $sql_settings = "CREATE TABLE IF NOT EXISTS $table_settings (
             id bigint(20) NOT NULL AUTO_INCREMENT,
             tenant_id bigint(20),

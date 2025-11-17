@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 /**
  * WooCommerce integration class
  */
-class ERP_POS_WooCommerce {
+class TEKRAERPOS_WooCommerce {
     private static $instance = null;
     
     public static function get_instance() {
@@ -158,12 +158,12 @@ class ERP_POS_WooCommerce {
             
             // Set order details
             $order->set_customer_id(get_current_user_id());
-            $order->set_created_via('erp_pos');
+            $order->set_created_via('tekraerpos');
             
             // Add meta data
-            $order->add_meta_data('_erp_pos_transaction', true);
-            $order->add_meta_data('_erp_tenant_id', $data['tenant_id']);
-            $order->add_meta_data('_erp_transaction_type', $data['type'] ?? 'pos');
+            $order->add_meta_data('_tekraerpos_transaction', true);
+            $order->add_meta_data('_tekraerpos_tenant_id', $data['tenant_id']);
+            $order->add_meta_data('_tekraerpos_transaction_type', $data['type'] ?? 'pos');
             if (!empty($data['payment_method'])) {
                 $order->set_payment_method($data['payment_method']);
             }

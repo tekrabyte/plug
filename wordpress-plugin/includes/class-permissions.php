@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 /**
  * Permissions and capabilities management
  */
-class ERP_POS_Permissions {
+class TEKRAERPOS_Permissions {
     private static $instance = null;
     
     public static function get_instance() {
@@ -21,11 +21,11 @@ class ERP_POS_Permissions {
         $shop_manager = get_role('shop_manager');
         
         $caps = array(
-            'use_erp_pos',
-            'manage_erp_pos',
-            'view_erp_transactions',
-            'manage_erp_tenants',
-            'view_erp_reports',
+            'use_tekraerpos',
+            'manage_tekraerpos',
+            'view_tekraerpos_transactions',
+            'manage_tekraerpos_tenants',
+            'view_tekraerpos_reports',
         );
         
         foreach ($caps as $cap) {
@@ -35,23 +35,23 @@ class ERP_POS_Permissions {
         
         // Add cashier role
         add_role(
-            'erp_cashier',
-            'POS Cashier',
+            'tekraerpos_cashier',
+            'Tekra ErPos Cashier',
             array(
                 'read' => true,
-                'use_erp_pos' => true,
+                'use_tekraerpos' => true,
             )
         );
     }
     
     public static function remove_capabilities() {
-        $roles = array('administrator', 'shop_manager', 'erp_cashier');
+        $roles = array('administrator', 'shop_manager', 'tekraerpos_cashier');
         $caps = array(
-            'use_erp_pos',
-            'manage_erp_pos',
-            'view_erp_transactions',
-            'manage_erp_tenants',
-            'view_erp_reports',
+            'use_tekraerpos',
+            'manage_tekraerpos',
+            'view_tekraerpos_transactions',
+            'manage_tekraerpos_tenants',
+            'view_tekraerpos_reports',
         );
         
         foreach ($roles as $role_name) {
@@ -63,6 +63,6 @@ class ERP_POS_Permissions {
             }
         }
         
-        remove_role('erp_cashier');
+        remove_role('tekraerpos_cashier');
     }
 }
