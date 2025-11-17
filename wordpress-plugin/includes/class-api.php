@@ -166,7 +166,7 @@ class TEKRAERPOS_API {
         $receipt_number = 'RCP-' . date('Ymd') . '-' . str_pad($order->get_id(), 6, '0', STR_PAD_LEFT);
         
         // Save transaction to database
-        $table_transactions = $wpdb->prefix . 'erp_transactions';
+        $table_transactions = $wpdb->prefix . 'tekraerpos_transactions';
         $wpdb->insert(
             $table_transactions,
             array(
@@ -188,7 +188,7 @@ class TEKRAERPOS_API {
         $transaction_id = $wpdb->insert_id;
         
         // Save transaction items
-        $table_items = $wpdb->prefix . 'erp_transaction_items';
+        $table_items = $wpdb->prefix . 'tekraerpos_transaction_items';
         foreach ($data['items'] as $item) {
             $product = wc_get_product($item['variant_id']);
             $wpdb->insert(
