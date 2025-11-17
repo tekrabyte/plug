@@ -295,7 +295,7 @@ class TEKRAERPOS_API {
     }
     
     public function get_tenants($request) {
-        $tenants = ERP_POS_Tenant::get_all_tenants();
+        $tenants = TEKRAERPOS_Tenant::get_all_tenants();
         return new WP_REST_Response($tenants, 200);
     }
     
@@ -315,7 +315,7 @@ class TEKRAERPOS_API {
         $id = (int) $request['id'];
         
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_transactions';
+        $table = $wpdb->prefix . 'tekraerpos_transactions';
         $transaction = $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table WHERE id = %d",
             $id
