@@ -136,7 +136,7 @@ class TEKRAERPOS_API {
     }
     
     public function get_categories($request) {
-        $categories = ERP_POS_WooCommerce::get_categories();
+        $categories = TEKRAERPOS_WooCommerce::get_categories();
         return new WP_REST_Response($categories, 200);
     }
     
@@ -154,7 +154,7 @@ class TEKRAERPOS_API {
         }
         
         // Create WooCommerce order
-        $result = ERP_POS_WooCommerce::create_order($data);
+        $result = TEKRAERPOS_WooCommerce::create_order($data);
         
         if (!$result['success']) {
             return new WP_REST_Response($result, 400);
