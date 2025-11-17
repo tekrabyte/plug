@@ -12,7 +12,9 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'wordpress-plugin/assets'),
       filename: 'erp-pos-app.js',
-      clean: true,
+      clean: {
+        keep: /\.(css|js)$/, // Keep CSS and JS files in subdirectories
+      },
     },
     module: {
       rules: [
