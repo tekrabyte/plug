@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import ProductGrid from "./components/ProductGrid";
 import CartPanel from "./components/CartPanel";
 import CheckoutModal from "./components/CheckoutModal";
