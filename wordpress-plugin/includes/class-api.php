@@ -269,8 +269,8 @@ class TEKRAERPOS_API {
         global $wpdb;
         $id = (int) $request['id'];
         
-        $table_transactions = $wpdb->prefix . 'erp_transactions';
-        $table_items = $wpdb->prefix . 'erp_transaction_items';
+        $table_transactions = $wpdb->prefix . 'tekraerpos_transactions';
+        $table_items = $wpdb->prefix . 'tekraerpos_transaction_items';
         
         $transaction = $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table_transactions WHERE id = %d",
