@@ -339,7 +339,7 @@ class TEKRAERPOS_API {
     
     public function get_sales_report($request) {
         global $wpdb;
-        $table = $wpdb->prefix . 'erp_transactions';
+        $table = $wpdb->prefix . 'tekraerpos_transactions';
         
         $tenant_id = $request->get_param('tenant_id');
         $start_date = $request->get_param('start_date') ?? date('Y-m-d', strtotime('-30 days'));
